@@ -1,2 +1,2 @@
 # PBLMobile
-do an lap trinh di dong
+Đây là đồ án lập trình di động
