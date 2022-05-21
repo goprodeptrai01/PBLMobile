@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 19, 2022 lúc 04:39 AM
+-- Thời gian đã tạo: Th5 21, 2022 lúc 06:07 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 7.4.25
 
@@ -54,7 +54,7 @@ INSERT INTO `chitietdonhang` (`id`, `iddonhang`, `idsanpham`, `soluong`, `gia`) 
 
 CREATE TABLE `donhang` (
   `id` int(11) NOT NULL,
-  `tenkhachhang` varchar(200) NOT NULL,
+  `idkhachhang` int(11) NOT NULL,
   `sodienthoai` int(10) NOT NULL,
   `diachi` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL
@@ -64,12 +64,32 @@ CREATE TABLE `donhang` (
 -- Đang đổ dữ liệu cho bảng `donhang`
 --
 
-INSERT INTO `donhang` (`id`, `tenkhachhang`, `sodienthoai`, `diachi`, `email`) VALUES
-(1, 'Hoàng Nhật Tân', 926738233, '52 Nguyễn Lương Bằng,phường Hòa Khánh ,quận Liên Chiểu ,TP Đà Nẵng', 'tang@gmail.com'),
-(2, 'Tạ Phươc Nguyên', 936284626, '188 Nguyễn Lương Bằng,phường Hòa Khánh ,quận Liên Chiểu ,TP Đà Nẵng', 'nguyen@gmail.com'),
-(3, 'Cao Minh Trí', 823742432, '60 Ngô Sỹ Liên,phường Hòa Khánh ,quận Liên Chiểu ,TP Đà Nẵng', 'tri@gmail.com'),
-(4, 'Lâm Ngọc Mỹ', 434353454, '20 Âu Cơ,phường Hòa Khánh ,quận Liên Chiểu ,TP Đà Nẵng', 'my@gmail.com'),
-(5, 'Trần Lê Thị Trà My', 969743828, '58 Ngô Thì Nhậm, phường Hòa Minh ,quận Liên Chiểu ,TP Đà Nẵng', 'tramy@gmail.com');
+INSERT INTO `donhang` (`id`, `idkhachhang`, `sodienthoai`, `diachi`, `email`) VALUES
+(1, 1, 926738233, '52 Nguyễn Lương Bằng,phường Hòa Khánh ,quận Liên Chiểu ,TP Đà Nẵng', 'tang@gmail.com'),
+(2, 1, 936284626, '188 Nguyễn Lương Bằng,phường Hòa Khánh ,quận Liên Chiểu ,TP Đà Nẵng', 'nguyen@gmail.com'),
+(3, 1, 823742432, '60 Ngô Sỹ Liên,phường Hòa Khánh ,quận Liên Chiểu ,TP Đà Nẵng', 'tri@gmail.com'),
+(4, 1, 434353454, '20 Âu Cơ,phường Hòa Khánh ,quận Liên Chiểu ,TP Đà Nẵng', 'my@gmail.com'),
+(5, 1, 969743828, '58 Ngô Thì Nhậm, phường Hòa Minh ,quận Liên Chiểu ,TP Đà Nẵng', 'tramy@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `khachhang`
+--
+
+CREATE TABLE `khachhang` (
+  `id` int(11) NOT NULL,
+  `tenkhachhang` varchar(30) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `pass` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `khachhang`
+--
+
+INSERT INTO `khachhang` (`id`, `tenkhachhang`, `email`, `pass`) VALUES
+(1, 'Nguyễn Văn A', 'VanA@gmail.com', '123456');
 
 -- --------------------------------------------------------
 
@@ -132,6 +152,13 @@ ALTER TABLE `chitietdonhang`
 -- Chỉ mục cho bảng `donhang`
 --
 ALTER TABLE `donhang`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idkhachhang` (`idkhachhang`);
+
+--
+-- Chỉ mục cho bảng `khachhang`
+--
+ALTER TABLE `khachhang`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -164,6 +191,12 @@ ALTER TABLE `donhang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT cho bảng `khachhang`
+--
+ALTER TABLE `khachhang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT cho bảng `loaisanpham`
 --
 ALTER TABLE `loaisanpham`
@@ -185,6 +218,12 @@ ALTER TABLE `sanpham`
 ALTER TABLE `chitietdonhang`
   ADD CONSTRAINT `chitietdonhang_ibfk_1` FOREIGN KEY (`iddonhang`) REFERENCES `donhang` (`id`),
   ADD CONSTRAINT `chitietdonhang_ibfk_2` FOREIGN KEY (`idsanpham`) REFERENCES `sanpham` (`id`);
+
+--
+-- Các ràng buộc cho bảng `donhang`
+--
+ALTER TABLE `donhang`
+  ADD CONSTRAINT `donhang_ibfk_1` FOREIGN KEY (`idkhachhang`) REFERENCES `khachhang` (`id`);
 
 --
 -- Các ràng buộc cho bảng `sanpham`
