@@ -12,8 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.appbanhang.R;
-import com.example.appbanhang.model.Sanpham;
+import com.example.shopdientuapp.R;
+import com.example.shopdientuapp.model.Sanpham;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -64,10 +64,7 @@ public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.View
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Sanpham sanpham = arrayList.get(getPosition());
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("sanpham", sanpham);
-                    Navigation.findNavController(itemView).navigate(R.id.detailFragment, bundle);
+
                 }
             });
         }
