@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#5992d2"
+    android:layout_margin="5dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_sanpham"
+        app:cardCornerRadius="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_sanpham"
+                    android:layout_margin="5dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    android:id="@+id/tv_tensp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Tên san phẩm"
+                    android:textColor="#353232"
+                    android:gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_giasp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10000"
+                    android:textSize="17sp"
+                    android:gravity="center"
+                    android:textColor="#f20"/>
+            </LinearLayout>
+
+            <ImageView
+                android:src="@drawable/image_new"
+                android:layout_gravity="top|right"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
