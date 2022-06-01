@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/activity_main.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/fragment_home.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/fragment_login.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/fragment_register.xml" value="0.1" />
+        <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/fragment_start.xml" value="0.129981884057971" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/drawable/button_style.xml" value="0.1965" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/drawable/edt_style.xml" value="0.1965" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_main.xml" value="0.2" />

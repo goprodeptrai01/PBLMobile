@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/register_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+<!--        tools:context=".registerFragment"-->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/img"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mo"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop Online"
+                android:textColor="@color/hong"
+                android:textSize="40sp"
+                android:fontFamily="cursive"/>
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/laptop" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/register_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/edt_style"
+            android:hint="User"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColorHint="@color/white"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="15dp"
+            />
+
+        <EditText
+            android:id="@+id/register_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/edt_style"
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColorHint="@color/white"
+            android:layout_marginBottom="7dp"
+
+            />
+
+        <EditText
+            android:id="@+id/register_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/edt_style"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColorHint="@color/white"
+            />
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:backgroundTint="@color/hong"
+            android:text="Create Account"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
