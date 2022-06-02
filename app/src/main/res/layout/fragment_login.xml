@@ -66,6 +66,7 @@
             android:layout_marginHorizontal="15dp"
             android:background="@drawable/edt_style"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textSize="20sp"
             android:gravity="center"
             android:textColorHint="@color/white"
