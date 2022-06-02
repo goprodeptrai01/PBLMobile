@@ -60,6 +60,28 @@ public class LoginFragment extends Fragment {
                 loginUser();
             }
         });
+
+        binding.tvAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.btnLogin.setText("Login Admin");
+                binding.tvAdmin.setVisibility(View.INVISIBLE);
+                binding.tvUser.setVisibility(View.VISIBLE);
+
+                parentDbName = "Admins";
+            }
+        });
+
+        binding.tvUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.btnLogin.setText("Login");
+                binding.tvAdmin.setVisibility(View.VISIBLE);
+                binding.tvUser.setVisibility(View.INVISIBLE);
+
+                parentDbName = "Users";
+            }
+        });
     }
 
     private void loginUser() {
@@ -93,11 +115,20 @@ public class LoginFragment extends Fragment {
                 if (snapshot.child(parentDbName).child(phone).exists()) {
                     Users usersdata = snapshot.child(parentDbName).child(phone).getValue(Users.class);
 
-                    if (usersdata.getPhone().equals(phone) && usersdata.getPassword().equals(password)) {
-                        Toast.makeText(getActivity(), "Login Successfully...", Toast.LENGTH_SHORT).show();
-                        loadingBar.dismiss();
+                    if (usersdata.getPhone().equals(phone)) {
+                        if (usersdata.getPassword().equals(password)) {
+                            if (parentDbName.equals("Admins")) {
+                                Toast.makeText(getActivity(), "Welcome Admin , You are login Successfully...", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
 
-                        Navigation.findNavController(binding.btnLogin).navigate(R.id.homeFragment);
+                                Navigation.findNavController(binding.btnLogin).navigate(R.id.adminFragment);
+                            } else if (parentDbName.equals("Users")) {
+                                Toast.makeText(getActivity(), "Login Successfully...", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+
+                                Navigation.findNavController(binding.btnLogin).navigate(R.id.homeFragment);
+                            }
+                        }
                     }
                     else {
                         Toast.makeText(getActivity(), "Your password maybe incorrect.Please try again.", Toast.LENGTH_SHORT).show();
@@ -105,7 +136,7 @@ public class LoginFragment extends Fragment {
                     }
                 }
                 else {
-                    Toast.makeText(getActivity(), "Account with this " + phone + "number do not exists ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Account with this " + phone + " number do not exists ", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
                 }
             }
