@@ -40,18 +40,21 @@
             android:layout_margin="12dp"/>
 
         <ImageView
+            android:id="@+id/iv_tablet"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@drawable/tablet"
             android:layout_margin="12dp"/>
 
         <ImageView
+            android:id="@+id/iv_watch"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@drawable/wristwatch"
             android:layout_margin="12dp"/>
 
         <ImageView
+            android:id="@+id/iv_headphone"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@drawable/headphone"

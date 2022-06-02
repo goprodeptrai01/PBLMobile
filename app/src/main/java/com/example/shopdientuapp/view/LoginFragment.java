@@ -121,7 +121,7 @@ public class LoginFragment extends Fragment {
                                 Toast.makeText(getActivity(), "Welcome Admin , You are login Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-                                Navigation.findNavController(binding.btnLogin).navigate(R.id.adminFragment);
+                                Navigation.findNavController(binding.btnLogin).navigate(R.id.adminCategoryFragment2);
                             } else if (parentDbName.equals("Users")) {
                                 Toast.makeText(getActivity(), "Login Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();

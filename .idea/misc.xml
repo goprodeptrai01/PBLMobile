@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/activity_main.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/fragment_add_product.xml" value="0.129981884057971" />
         <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/fragment_admin.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/fragment_admin_category.xml" value="0.129981884057971" />
         <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/fragment_home.xml" value="0.129981884057971" />
         <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/fragment_login.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/Cao Minh Tri/AndroidStudioProjects/PBLMobile/app/src/main/res/layout/fragment_register.xml" value="0.1" />
@@ -13,13 +15,8 @@
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/drawable/edt_style.xml" value="0.1965" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/button_style.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/fragment_add_product.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/fragment_admin.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/fragment_admin_category.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/fragment_login.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/fragment_register.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/fragment_start.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/item_dienthoai.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/item_loaisp.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/item_sanpham_new.xml" value="0.22826086956521738" />

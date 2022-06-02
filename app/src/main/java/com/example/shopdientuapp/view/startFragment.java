@@ -1,4 +1,4 @@
-package com.example.shopdientuapp;
+package com.example.shopdientuapp.view;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.shopdientuapp.R;
 import com.example.shopdientuapp.databinding.FragmentLoginBinding;
 import com.example.shopdientuapp.databinding.FragmentStartBinding;
 

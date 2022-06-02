@@ -1,4 +1,4 @@
-package com.example.shopdientuapp;
+package com.example.shopdientuapp.view;
 
 import android.os.Bundle;
 

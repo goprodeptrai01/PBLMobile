@@ -40,7 +40,46 @@ public class AdminCategoryFragment extends Fragment {
         binding.ivAddlaptop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(binding.ivAddlaptop).navigate(R.id.addProductFragment);
+                Bundle bundle = new Bundle();
+                bundle.putString("category","laptop");
+                Navigation.findNavController(binding.ivAddlaptop).navigate(R.id.addProductFragment, bundle);
+
+            }
+        });
+
+        binding.ivAddphone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("category","mobile");
+                Navigation.findNavController(binding.ivAddlaptop).navigate(R.id.addProductFragment, bundle);
+            }
+        });
+
+        binding.ivTablet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("category","tablet");
+                Navigation.findNavController(binding.ivAddlaptop).navigate(R.id.addProductFragment, bundle);
+            }
+        });
+
+        binding.ivWatch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("category","watch");
+                Navigation.findNavController(binding.ivAddlaptop).navigate(R.id.addProductFragment, bundle);
+            }
+        });
+
+        binding.ivHeadphone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("category","headphone");
+                Navigation.findNavController(binding.ivAddlaptop).navigate(R.id.addProductFragment, bundle);
             }
         });
     }
