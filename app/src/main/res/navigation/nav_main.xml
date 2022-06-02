@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/startFragment">
+    app:startDestination="@id/adminCategoryFragment2">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -52,4 +52,18 @@
         android:name="com.example.shopdientuapp.AdminFragment"
         android:label="fragment_admin"
         tools:layout="@layout/fragment_admin" />
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.example.shopdientuapp.view.AddProductFragment"
+        android:label="fragment_add_product"
+        tools:layout="@layout/fragment_add_product" />
+    <fragment
+        android:id="@+id/adminCategoryFragment2"
+        android:name="com.example.shopdientuapp.view.AdminCategoryFragment"
+        android:label="fragment_admin_category"
+        tools:layout="@layout/fragment_admin_category" >
+        <action
+            android:id="@+id/action_adminCategoryFragment2_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+    </fragment>
 </navigation>
