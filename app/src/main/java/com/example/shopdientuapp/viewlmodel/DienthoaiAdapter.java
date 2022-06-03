@@ -36,7 +36,7 @@ public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Picasso.with(context).load(arrayList.get(position).getHinhansanpham()).into(holder.ivDienthoai);
+//        Picasso.with(context).load(arrayList.get(position).getHinhansanpham()).into(holder.ivDienthoai);
         holder.tvTendienthoai.setText(arrayList.get(position).getTensanpham());
         holder.tvGiadienthoai.setText(String.valueOf(arrayList.get(position).getGiasanpham()));
         holder.tvMota.setText(arrayList.get(position).getMotasanpham());

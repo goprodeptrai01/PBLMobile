@@ -43,8 +43,8 @@ public class LoaispAdapter extends RecyclerView.Adapter<LoaispAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Picasso.with(context).load(arrayList.get(position).getHinhanhloaisp())
-                .into(holder.ivLoaisp);
+//        Picasso.with(context).load(arrayList.get(position).getHinhanhloaisp())
+//                .into(holder.ivLoaisp);
 
         holder.tvLoaisp.setText(arrayList.get(position).getTenloaisp());
     }

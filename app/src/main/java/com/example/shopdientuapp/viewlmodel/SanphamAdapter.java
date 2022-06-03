@@ -38,8 +38,8 @@ public class SanphamAdapter extends RecyclerView.Adapter<SanphamAdapter.ViewHold
         holder.tvTensp.setText(sanphamArrayList.get(position).getTensanpham());
         holder.tvGiasp.setText(String.valueOf(sanphamArrayList.get(position).getGiasanpham()));
 
-        Picasso.with(context).load(sanphamArrayList.get(position).getHinhansanpham())
-                .into(holder.ivSanpham);
+//        Picasso.with(context).load(sanphamArrayList.get(position).getHinhansanpham())
+//                .into(holder.ivSanpham);
     }
 
     @Override
@@ -55,9 +55,9 @@ public class SanphamAdapter extends RecyclerView.Adapter<SanphamAdapter.ViewHold
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            ivSanpham = (ImageView) itemView.findViewById(R.id.iv_sanpham);
-            tvTensp = (TextView) itemView.findViewById(R.id.tv_tensp);
-            tvGiasp = (TextView) itemView.findViewById(R.id.tv_giasp);
+//            ivSanpham = (ImageView) itemView.findViewById(R.id.iv_sanpham);
+//            tvTensp = (TextView) itemView.findViewById(R.id.tv_tensp);
+//            tvGiasp = (TextView) itemView.findViewById(R.id.tv_giasp);
         }
     }
 }
