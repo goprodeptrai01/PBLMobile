@@ -1,24 +1,17 @@
-package com.example.shopdientuapp.view;
+package com.example.shopdientuapp;
 
-import android.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.shopdientuapp.R;
-import com.example.shopdientuapp.databinding.FragmentRegisterBinding;
-import com.example.shopdientuapp.databinding.FragmentStartBinding;
+import com.example.shopdientuapp.databinding.ActivityRegisterBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -29,34 +22,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-public class registerFragment extends Fragment {
+public class RegisterActivity extends AppCompatActivity {
 
-
-    private FragmentRegisterBinding binding;
+    private ActivityRegisterBinding binding;
     private ProgressDialog loadingBar;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        binding = ActivityRegisterBinding.inflate(getLayoutInflater());
+        View viewRoot = binding.getRoot();
+        setContentView(viewRoot);
 
-        }
-
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = FragmentRegisterBinding.inflate(inflater, container, false);
-        return binding.getRoot();
-
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        loadingBar = new ProgressDialog(getActivity());
+        loadingBar = new ProgressDialog(this);
 
         binding.registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,14 +50,14 @@ public class registerFragment extends Fragment {
         String password = binding.registerPass.getText().toString();
 
         if (TextUtils.isEmpty(username)) {
-            Toast.makeText(getActivity(), "Please enter your name...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter your name...", Toast.LENGTH_SHORT).show();
 
         }
         else if (TextUtils.isEmpty(phone)) {
-            Toast.makeText(getActivity(), "Please enter your phone number...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter your phone number...", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getActivity(), "Please enter your password...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter your password...", Toast.LENGTH_SHORT).show();
         }
         else {
             loadingBar.setTitle("Create Account");
@@ -110,26 +88,28 @@ public class registerFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(getActivity(), "Account Created", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisterActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
                                         loadingBar.dismiss();
 
-                                        Navigation.findNavController(binding.registerLayout).navigate(R.id.startFragment);
+                                        Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                                        startActivity(intent);
 
                                     }
                                     else {
                                         loadingBar.dismiss();
-                                        Toast.makeText(getActivity(), "Network Error. Please try again ...", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisterActivity.this, "Network Error. Please try again ...", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
 
                 }
                 else {
-                    Toast.makeText(getActivity(), " This " + phone + " already exists", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, " This " + phone + " already exists", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
-                    Toast.makeText(getActivity(), "Please try again using another phone number.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Please try again using another phone number.", Toast.LENGTH_SHORT).show();
 
-                    Navigation.findNavController(binding.registerLayout).navigate(R.id.startFragment);
+                    Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                    startActivity(intent);
                 }
             }
 

@@ -1,27 +1,20 @@
-package com.example.shopdientuapp.view;
+package com.example.shopdientuapp;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
-import android.text.Editable;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.shopdientuapp.R;
-import com.example.shopdientuapp.databinding.FragmentAddProductBinding;
-import com.example.shopdientuapp.databinding.FragmentAdminCategoryBinding;
+import com.example.shopdientuapp.databinding.ActivityAdminAddNewProductBinding;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,14 +26,13 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class AddProductFragment extends Fragment {
+public class AdminAddNewProductActivity extends AppCompatActivity {
 
-    private FragmentAddProductBinding binding;
+    private ActivityAdminAddNewProductBinding binding;
     private String CategoryName;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
@@ -51,30 +43,18 @@ public class AddProductFragment extends Fragment {
     private ProgressDialog loadingBar;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        binding = ActivityAdminAddNewProductBinding.inflate(getLayoutInflater());
+        View viewRoot = binding.getRoot();
+        setContentView(viewRoot);
 
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = FragmentAddProductBinding.inflate(inflater, container, false);
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Bundle bundle = getArguments();
-        CategoryName =  bundle.getString("category").toString();
+        CategoryName = getIntent().getExtras().get("category").toString();
         ProductImageRef = FirebaseStorage.getInstance().getReference().child("Product Images");
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
-        loadingBar = new ProgressDialog(getActivity());
+        loadingBar = new ProgressDialog(this);
 
-        Toast.makeText(getActivity(), CategoryName, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, CategoryName, Toast.LENGTH_SHORT).show();
 
         binding.ivAnhProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,8 +79,8 @@ public class AddProductFragment extends Fragment {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==GalleryPick && resultCode == Activity.RESULT_OK && data != null) {
             ImageUri = data.getData();
             binding.ivAnhProduct.setImageURI(ImageUri);
@@ -109,19 +89,19 @@ public class AddProductFragment extends Fragment {
 
     private void ValidateProductData() {
         if ( ImageUri == null) {
-            Toast.makeText(getActivity(), "Product image is mandatory....", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Product image is mandatory....", Toast.LENGTH_SHORT).show();
 
         }
         else if (TextUtils.isEmpty(binding.editDesc.getText())) {
-            Toast.makeText(getActivity(), "Please write the product description", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please write the product description", Toast.LENGTH_SHORT).show();
 
         }
         else if (TextUtils.isEmpty(binding.editName.getText())) {
-            Toast.makeText(getActivity(), "Please enter the product name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter the product name", Toast.LENGTH_SHORT).show();
 
         }
         else if (TextUtils.isEmpty(binding.editPrice.getText())) {
-            Toast.makeText(getActivity(), "Please enter the product price", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter the product price", Toast.LENGTH_SHORT).show();
         }
         else {
             StoreProductInformation();
@@ -153,13 +133,13 @@ public class AddProductFragment extends Fragment {
             @Override
             public void onFailure(@NonNull Exception e) {
                 String message = e.toString();
-                Toast.makeText(getActivity(), "Error : " + message , Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminAddNewProductActivity.this, "Error : " + message , Toast.LENGTH_SHORT).show();
                 loadingBar.dismiss();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(getActivity(), "Image uploaded successfully...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminAddNewProductActivity.this, "Image uploaded successfully...", Toast.LENGTH_SHORT).show();
 
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -177,7 +157,7 @@ public class AddProductFragment extends Fragment {
                         if (task.isSuccessful()) {
                             downloadImageUrl = task.getResult().toString();
 
-                            Toast.makeText(getActivity(), "Got the product image url", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminAddNewProductActivity.this, "Got the product image url", Toast.LENGTH_SHORT).show();
                             SaveProductInfoToDatabase(binding.editName.getText().toString());
                         }
                     }
@@ -205,15 +185,16 @@ public class AddProductFragment extends Fragment {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             loadingBar.dismiss();
-                            Toast.makeText(getActivity(), "Product is added", Toast.LENGTH_SHORT).show();
-                            Navigation.findNavController(binding.btnAddProduct).navigate(R.id.adminCategoryFragment2);
+                            Toast.makeText(AdminAddNewProductActivity.this, "Product is added", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(AdminAddNewProductActivity.this, AdminCategoryActivity.class);
+                            startActivity(intent);
                         }
                         else {
                             loadingBar.dismiss();
                             String message = task.getException().toString();
                             Log.e("Debug","K bi loi ne me r");
 
-                            Toast.makeText(getActivity(), "Error : " + message, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminAddNewProductActivity.this, "Error : " + message, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

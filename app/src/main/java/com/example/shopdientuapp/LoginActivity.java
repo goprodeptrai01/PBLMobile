@@ -1,23 +1,17 @@
-package com.example.shopdientuapp.view;
+package com.example.shopdientuapp;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NavigationRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.text.TextUtils;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.shopdientuapp.R;
-import com.example.shopdientuapp.databinding.FragmentHomeBinding;
-import com.example.shopdientuapp.databinding.FragmentLoginBinding;
+import com.example.shopdientuapp.databinding.ActivityLoginBinding;
 import com.example.shopdientuapp.model.Users;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,38 +19,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginFragment extends Fragment {
+public class LoginActivity extends AppCompatActivity {
 
-    private FragmentLoginBinding binding;
+    private ActivityLoginBinding binding;
     private ProgressDialog loadingBar;
     private String parentDbName = "Users";
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        View viewRoot = binding.getRoot();
+        setContentView(viewRoot);
 
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = FragmentLoginBinding.inflate(inflater, container, false);
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        loadingBar = new ProgressDialog(getActivity());
+        loadingBar = new ProgressDialog(this);
 
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Bundle bundle = new Bundle();
-//                Navigation.findNavController(binding.btnLogin).navigate(R.id.homeFragment);
                 loginUser();
             }
         });
@@ -89,10 +69,10 @@ public class LoginFragment extends Fragment {
         String password = binding.edtPass.getText().toString();
 
         if (TextUtils.isEmpty(phone)) {
-            Toast.makeText(getActivity(), "Please enter your phone number...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter your phone number...", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getActivity(), "Please enter your password...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter your password...", Toast.LENGTH_SHORT).show();
         }
         else {
             loadingBar.setTitle("Login Account");
@@ -114,29 +94,32 @@ public class LoginFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child(parentDbName).child(phone).exists()) {
                     Users usersdata = snapshot.child(parentDbName).child(phone).getValue(Users.class);
+                    Log.e("Debug","nooooooooooooooooooo");
 
                     if (usersdata.getPhone().equals(phone)) {
                         if (usersdata.getPassword().equals(password)) {
                             if (parentDbName.equals("Admins")) {
-                                Toast.makeText(getActivity(), "Welcome Admin , You are login Successfully...", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Welcome Admin , You are login Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
-
-                                Navigation.findNavController(binding.btnLogin).navigate(R.id.adminCategoryFragment2);
+                                Log.e("Debug","nooooooooooooooooooo");
+                                Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
+                                startActivity(intent);
                             } else if (parentDbName.equals("Users")) {
-                                Toast.makeText(getActivity(), "Login Successfully...", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-                                Navigation.findNavController(binding.btnLogin).navigate(R.id.homeFragment);
+//                                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+//                                startActivity(intent);
                             }
                         }
                     }
                     else {
-                        Toast.makeText(getActivity(), "Your password maybe incorrect.Please try again.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Your password maybe incorrect.Please try again.", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
                     }
                 }
                 else {
-                    Toast.makeText(getActivity(), "Account with this " + phone + " number do not exists ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Account with this " + phone + " number do not exists ", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
                 }
             }
