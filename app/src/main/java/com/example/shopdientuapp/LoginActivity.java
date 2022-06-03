@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.shopdientuapp.Prevalent.Prevalent;
 import com.example.shopdientuapp.databinding.ActivityLoginBinding;
 import com.example.shopdientuapp.model.Users;
 import com.google.firebase.database.DataSnapshot;
@@ -108,8 +109,9 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Login Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-//                                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-//                                startActivity(intent);
+                                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                Prevalent.currentOnlineUser = usersdata;
+                                startActivity(intent);
                             }
                         }
                     }
