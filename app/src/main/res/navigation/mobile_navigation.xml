@@ -10,7 +10,6 @@
         android:name="com.example.shopdientuapp.ui.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
         android:id="@+id/nav_cart"
         android:name="com.example.shopdientuapp.ui.cart.CartFragment"
@@ -31,4 +30,5 @@
         android:name="com.example.shopdientuapp.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+
 </navigation>
