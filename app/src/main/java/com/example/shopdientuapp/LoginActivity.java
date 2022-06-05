@@ -95,15 +95,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.child(parentDbName).child(phone).exists()) {
                     Users usersdata = snapshot.child(parentDbName).child(phone).getValue(Users.class);
-                    Log.e("Debug","nooooooooooooooooooo");
 
                     if (usersdata.getPhone().equals(phone)) {
                         if (usersdata.getPassword().equals(password)) {
                             if (parentDbName.equals("Admins")) {
                                 Toast.makeText(LoginActivity.this, "Welcome Admin , You are login Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
-                                Log.e("Debug","nooooooooooooooooooo");
                                 Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
+                                Prevalent.currentOnlineUser = new Users("Admin","","");
                                 startActivity(intent);
                             } else if (parentDbName.equals("Users")) {
                                 Toast.makeText(LoginActivity.this, "Login Successfully...", Toast.LENGTH_SHORT).show();
@@ -114,15 +113,15 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent);
                             }
                         }
+                        else {
+                            Toast.makeText(LoginActivity.this, "Your password maybe incorrect.Please try again.", Toast.LENGTH_SHORT).show();
+                            loadingBar.dismiss();
+                        }
                     }
                     else {
-                        Toast.makeText(LoginActivity.this, "Your password maybe incorrect.Please try again.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Account with this " + phone + " number do not exists ", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
                     }
-                }
-                else {
-                    Toast.makeText(LoginActivity.this, "Account with this " + phone + " number do not exists ", Toast.LENGTH_SHORT).show();
-                    loadingBar.dismiss();
                 }
             }
 

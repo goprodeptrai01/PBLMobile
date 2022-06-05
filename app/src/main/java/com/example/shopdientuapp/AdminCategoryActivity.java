@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.shopdientuapp.databinding.ActivityAdminCategoryBinding;
@@ -24,7 +25,9 @@ public class AdminCategoryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdminCategoryActivity.this, HomeActivity.class);
                 intent.putExtra("Admin","Admin");
+                Log.e("DEBUG","Error ne!");
                 startActivity(intent);
+                Log.e("DEBUG","Qua duoc roi!");
             }
         });
 

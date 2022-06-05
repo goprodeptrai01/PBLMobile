@@ -31,46 +31,46 @@
         <ImageView
             android:id="@+id/iv_addlaptop"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:src="@drawable/laptop1"
             android:layout_margin="12dp"/>
 
         <ImageView
             android:id="@+id/iv_addphone"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:src="@drawable/iphone"
             android:layout_margin="12dp"/>
 
         <ImageView
             android:id="@+id/iv_tablet"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:src="@drawable/tablet"
             android:layout_margin="12dp"/>
 
         <ImageView
             android:id="@+id/iv_watch"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:src="@drawable/wristwatch"
             android:layout_margin="12dp"/>
 
         <ImageView
             android:id="@+id/iv_headphone"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:src="@drawable/headphone"
             android:layout_margin="12dp"/>
 
         <ImageView
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:src="@drawable/diamond"
             android:layout_margin="12dp"/>
 
     </GridLayout>
-    
+
     <Button
         android:id="@+id/btn_maintain_product"
         android:layout_width="match_parent"

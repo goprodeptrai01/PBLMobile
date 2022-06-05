@@ -53,7 +53,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        type = getIntent().getExtras().get("Admin").toString();
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            type = getIntent().getExtras().get("Admin").toString();
+        }
 
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
@@ -61,8 +65,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if (!type.equals("Admin")) {
+                    Intent intent = new Intent(HomeActivity.this,CartActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -116,7 +123,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                             public void onClick(View view) {
 
                                 if (type.equals("Admin")) {
-
+                                    Intent intent = new Intent(HomeActivity.this, AdminMaintainProductActivity.class);
+                                    intent.putExtra("pid",model.getPid());
+                                    startActivity(intent);
                                 }
                                 else {
                                     Intent intent = new Intent(HomeActivity.this, ProductDetailActivity.class);
@@ -169,8 +178,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_cart)
         {
-            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
-            startActivity(intent);
+            if (!type.equals("Admin")) {
+                Intent intent = new Intent(HomeActivity.this,CartActivity.class);
+                startActivity(intent);
+            }
         }
         else if (id == R.id.nav_orders)
         {
