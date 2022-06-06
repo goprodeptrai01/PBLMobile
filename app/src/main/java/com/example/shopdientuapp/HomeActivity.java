@@ -35,6 +35,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import io.paperdb.Paper;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -193,6 +194,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 //            startActivity(intent);
         }
         else if (id == R.id.nav_logout) {
+            Paper.book().destroy();
             Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(intent);
         }

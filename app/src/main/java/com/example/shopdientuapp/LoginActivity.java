@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.example.shopdientuapp.Prevalent.Prevalent;
@@ -19,6 +20,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -34,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(viewRoot);
 
         loadingBar = new ProgressDialog(this);
+
+        Paper.init(this);
 
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +91,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void AllowAccessToAccount(String phone, String password) {
+        if (binding.cbRememberPw.isChecked()) {
+            Paper.book().write(Prevalent.UserPhoneKey, phone);
+            Paper.book().write(Prevalent.UserPasswordKey, password);
+        }
+
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
