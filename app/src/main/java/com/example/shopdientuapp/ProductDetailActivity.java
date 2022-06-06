@@ -3,13 +3,17 @@ package com.example.shopdientuapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
-import com.example.shopdientuapp.databinding.ActivityLoginBinding;
+import com.example.shopdientuapp.Prevalent.Prevalent;
 import com.example.shopdientuapp.databinding.ActivityProductDetailBinding;
 import com.example.shopdientuapp.model.Products;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,11 +21,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+
 public class ProductDetailActivity extends AppCompatActivity {
 
     private ActivityProductDetailBinding binding;
     private String productID  = "";
     private int quantity = 1;
+    private String saveCurrentDate, saveCurrentTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +60,71 @@ public class ProductDetailActivity extends AppCompatActivity {
                 }
             }
         });
+
+        binding.pdAddToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Debug", "loi");
+                addingToCartList();
+                Log.d("Debug", "loi");
+
+            }
+        });
+    }
+
+    private void addingToCartList() {
+
+
+        Log.d("Debug", "loi2");
+
+        Calendar calendar = Calendar.getInstance();
+
+        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+        saveCurrentDate = currentDate.format(calendar.getTime());
+
+        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+        saveCurrentTime = currentTime.format(calendar.getTime());
+
+        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+
+        final HashMap<String, Object> cartMap = new HashMap<>();
+        cartMap.put("pid", productID);
+        cartMap.put("name", binding.productNameDetails.getText().toString());
+        cartMap.put("price", binding.productPriceDetails.getText().toString());
+        cartMap.put("date", saveCurrentDate);
+        cartMap.put("time", saveCurrentTime);
+        cartMap.put("quantity", binding.tvQuantity.getText().toString());
+        cartMap.put("discount", "");
+
+        Log.d("Debug", "loi3");
+
+        cartListRef.child("User View").child(Prevalent.currentOnlineUser.getPhone()).child("Products")
+                .child(productID)
+                .updateChildren(cartMap)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            cartListRef.child("Admin View").child(Prevalent.currentOnlineUser.getPhone()).child("Products")
+                                    .child(productID)
+                                    .updateChildren(cartMap)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()){
+
+
+                                                Toast.makeText(ProductDetailActivity.this,  "Added to cart List", Toast.LENGTH_SHORT).show();
+
+                                                Intent intent = new Intent(ProductDetailActivity.this, HomeActivity.class);
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    });
+                        }
+                    }
+                });
+
     }
 
     private void getProductDetails(String productID) {

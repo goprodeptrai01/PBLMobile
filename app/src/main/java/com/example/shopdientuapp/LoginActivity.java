@@ -128,10 +128,11 @@ public class LoginActivity extends AppCompatActivity {
                             loadingBar.dismiss();
                         }
                     }
-                    else {
-                        Toast.makeText(LoginActivity.this, "Account with this " + phone + " number do not exists ", Toast.LENGTH_SHORT).show();
-                        loadingBar.dismiss();
-                    }
+
+                }
+                else {
+                    Toast.makeText(LoginActivity.this, "Account with this " + phone + " number do not exists ", Toast.LENGTH_SHORT).show();
+                    loadingBar.dismiss();
                 }
             }
 

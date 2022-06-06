@@ -3,6 +3,9 @@ buildscript {
     repositories {
         // Check that you have the following line (if not, add it):
         google()  // Google's Maven repository
+        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         // Add this line
@@ -10,6 +13,14 @@ buildscript {
 
     }
 }
+
+//allprojects {
+//    repositories {
+//        maven {
+//            url "https://plugins.gradle.org/m2/"
+//        }
+//    }
+//}
 
 plugins {
     id 'com.android.application' version '7.2.1' apply false

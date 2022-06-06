@@ -26,11 +26,11 @@
                     android:id="@+id/close_settings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:text="Close"
                     android:textColor="@color/white"
                     android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:layout_alignParentStart="true">
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -58,7 +58,8 @@
         android:layout_gravity="center"
         app:cardCornerRadius="500dp"
         android:layout_marginVertical="20dp">
-        <ImageView
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_avatar"
             android:layout_width="160dp"
             android:layout_height="210dp"
@@ -68,6 +69,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/change_avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Change Profile"
