@@ -44,6 +44,28 @@ public class AdminMaintainProductActivity extends AppCompatActivity {
                 editProduct();
             }
         });
+
+        binding.btnDeleteProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteProduct();
+            }
+        });
+    }
+
+    private void deleteProduct() {
+
+        productsRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                Intent intent = new Intent(AdminMaintainProductActivity.this, AdminCategoryActivity.class);
+                startActivity(intent);
+                finish();
+
+                Toast.makeText(AdminMaintainProductActivity.this, "Product Deleted ", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void editProduct() {
