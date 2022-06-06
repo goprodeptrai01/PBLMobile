@@ -183,22 +183,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         }
-        else if (id == R.id.nav_orders)
-        {
-
-        }
         else if (id == R.id.nav_search) {
             Intent intent = new Intent(HomeActivity.this, SearchActivity.class);
             startActivity(intent);
-        }
-        else if (id == R.id.nav_categories)
-        {
-
         }
         else if (id == R.id.nav_settings)
         {
 //            Intent intent = new Intent(HomeActivity.this, SettinsActivity.class);
 //            startActivity(intent);
+        }
+        else if (id == R.id.nav_logout) {
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

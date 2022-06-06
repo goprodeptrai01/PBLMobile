@@ -16,19 +16,14 @@
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment
-        android:id="@+id/nav_orders"
-        android:name="com.example.shopdientuapp.ui.orders.OrdersFragment"
-        android:label="fragment_orders"
-        tools:layout="@layout/fragment_orders" />
-    <fragment
-        android:id="@+id/nav_categories"
-        android:name="com.example.shopdientuapp.ui.categories.CategoriesFragment"
-        android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
-    <fragment
         android:id="@+id/nav_settings"
         android:name="com.example.shopdientuapp.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.shopdientuapp.ui.categories.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/activity_login" />
 
 </navigation>
