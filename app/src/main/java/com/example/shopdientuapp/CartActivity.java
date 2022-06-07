@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,7 @@ public class CartActivity extends AppCompatActivity {
     private Button NextProcessBtn;
     private TextView txtTotalAmount;
 
-//    private int overTotalPrice = 0;
+    private int overTotalPrice = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,23 +49,24 @@ public class CartActivity extends AppCompatActivity {
         NextProcessBtn = (Button) findViewById(R.id.btn_next);
         txtTotalAmount = (TextView) findViewById(R.id.tv_totalPrice);
 
-//        NextProcessBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                txtTotalAmount.setText("Total Price = VNĐ"+ String.valueOf(overTotalPrice));
-//
-//                Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
-//                intent.putExtra("Total Price", String.valueOf(overTotalPrice));
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+        NextProcessBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtTotalAmount.setText(String.format("Total Price = %s vnd", String.valueOf(overTotalPrice)));
+
+                Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
+                intent.putExtra("Total Price", String.valueOf(overTotalPrice));
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 
     @Override
     protected void onStart() {
         super.onStart();
+
 
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
 
@@ -79,11 +81,16 @@ public class CartActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model) {
                 holder.txtProductQuantity.setText("Quantity = "+model.getQuantity());
-                holder.txtProductPrice.setText("Price = "+model.getPrice()+"VNĐ");
+                holder.txtProductPrice.setText("Price = "+model.getPrice());
                 holder.txtProductName.setText("Product: "+model.getName());
 
-//                int oneTypeProductTPrice = ((Integer.valueOf(model.getPrice()))) * Integer.valueOf(model.getQuantity());
-//                overTotalPrice = overTotalPrice + oneTypeProductTPrice;
+                String temp = model.getPrice().split("\\s",0)[0];
+                Log.d("Debug", temp);
+
+                int oneTypeProductTPrice = (Integer.parseInt(temp)) * Integer.parseInt(model.getQuantity());
+                Log.d("Debug", "loi tinh");
+                overTotalPrice = overTotalPrice + oneTypeProductTPrice;
+                Log.d("Debug", "loi tinh tong");
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
