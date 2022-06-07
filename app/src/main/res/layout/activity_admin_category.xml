@@ -72,6 +72,19 @@
     </GridLayout>
 
     <Button
+        android:id="@+id/check_orders_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Check New Orders"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        />
+
+    <Button
         android:id="@+id/btn_maintain_product"
         android:layout_width="match_parent"
         android:layout_height="50dp"

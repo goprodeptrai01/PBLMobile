@@ -7,12 +7,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.example.shopdientuapp.Prevalent.Prevalent;
+import com.example.shopdientuapp.admin.AdminCategoryActivity;
 import com.example.shopdientuapp.databinding.ActivityLoginBinding;
 import com.example.shopdientuapp.model.Users;
 import com.google.firebase.database.DataSnapshot;
@@ -44,6 +43,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loginUser();
+            }
+        });
+
+        binding.tvForgetPw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                intent.putExtra("check", "login");
+                startActivity(intent);
             }
         });
 

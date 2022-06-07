@@ -1,4 +1,4 @@
-package com.example.shopdientuapp;
+package com.example.shopdientuapp.admin;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

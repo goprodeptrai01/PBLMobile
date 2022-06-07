@@ -105,5 +105,12 @@
         android:hint="Address"
         android:textSize="20sp"
         android:layout_marginHorizontal="20dp"/>
+    <Button
+        android:id="@+id/security_questions_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set security question"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="20dp"/>
 
 </LinearLayout>

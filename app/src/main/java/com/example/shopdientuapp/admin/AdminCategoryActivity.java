@@ -1,4 +1,4 @@
-package com.example.shopdientuapp;
+package com.example.shopdientuapp.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.shopdientuapp.HomeActivity;
+import com.example.shopdientuapp.MainActivity;
 import com.example.shopdientuapp.databinding.ActivityAdminCategoryBinding;
 
 public class AdminCategoryActivity extends AppCompatActivity {
@@ -28,6 +30,16 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 Log.e("DEBUG","Error ne!");
                 startActivity(intent);
                 Log.e("DEBUG","Qua duoc roi!");
+            }
+        });
+
+        binding.checkOrdersBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminNewOrdersActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             }
         });
 

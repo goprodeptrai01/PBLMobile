@@ -11,21 +11,35 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
+
         <androidx.appcompat.widget.Toolbar
-            android:background="@color/hong"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            tools:ignore="MissingConstraints" >
+            android:background="@color/hong"
+            tools:ignore="MissingConstraints">
+
             <TextView
                 android:id="@+id/tv_totalPrice"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Total Price = "
                 android:gravity="center"
+                android:text="Total Price = "
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="22sp"/>
+                android:textSize="22sp"
+                android:textStyle="bold" />
         </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/msgl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Congratulations, your final order has been placed successfully. Soon it will be verified."
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="20dp"
+            android:visibility="gone"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv"
@@ -34,14 +48,15 @@
             android:layout_weight="1"
             tools:ignore="MissingClass,MissingConstraints" />
 
+
         <Button
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="bottom"
+            android:backgroundTint="@color/hong"
             android:text="Next"
-            android:textSize="18sp"
-            android:backgroundTint="@color/hong"/>
+            android:textSize="18sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

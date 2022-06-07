@@ -28,7 +28,7 @@ import java.util.HashMap;
 public class ProductDetailActivity extends AppCompatActivity {
 
     private ActivityProductDetailBinding binding;
-    private String productID  = "";
+    private String productID  = "",state = "Normal";
     private int quantity = 1;
     private String saveCurrentDate, saveCurrentTime;
 
@@ -64,12 +64,21 @@ public class ProductDetailActivity extends AppCompatActivity {
         binding.pdAddToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Debug", "loi");
-                addingToCartList();
-                Log.d("Debug", "loi");
-
+                if (state.equals("Order Placed") || state.equals("Order Shipped")){
+                    Toast.makeText(ProductDetailActivity.this, "you can add purchase more products, once your order is shipped or confirmed!", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    addingToCartList();
+                }
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        
+        CheckOrderState();
     }
 
     private void addingToCartList() {
@@ -140,6 +149,33 @@ public class ProductDetailActivity extends AppCompatActivity {
                     binding.productDescriptionDetails.setText(products.getDescription());
                     binding.productPriceDetails.setText(products.getPrice() + " vnd");
                     Picasso.get().load(products.getImage()).into(binding.productImageDetails);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void CheckOrderState(){
+        DatabaseReference ordersRef;
+        ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentOnlineUser.getPhone());
+
+        ordersRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    String shippingState = snapshot.child("state").getValue().toString();
+
+                    if (shippingState.equals("shipped")){
+                        state = "Order Shipped";
+                    }
+                    else if (shippingState.equals("not shipped")){
+                        state = "Order Placed";
+
+                    }
                 }
             }
 
