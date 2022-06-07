@@ -1,9 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfirmFinalOrderActivity">
+    tools:context=".ConfirmFinalOrderActivity"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please write your Shipment Details"
+            android:textColor="@color/hong"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"/>
+
+
+
+        <EditText
+            android:id="@+id/edt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Name"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="20dp"/>
+
+        <EditText
+            android:id="@+id/edt_phonenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Phone Number"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="20dp"/>
+
+        <EditText
+            android:id="@+id/edt_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Home Address"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="20dp"/>
+
+        <EditText
+            android:id="@+id/edt_yourCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your City Name"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="20dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:text="confirm"
+        android:textSize="18sp"
+        android:backgroundTint="@color/hong"
+        android:layout_margin="15dp"/>
+
+</LinearLayout>
