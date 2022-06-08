@@ -49,7 +49,9 @@
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_admin_add_new_product.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_admin_category.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_admin_maintain_product.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_admin_user_products.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_cart.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_confirm_final_order.xml" value="0.15715579710144928" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_home.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
@@ -70,6 +72,8 @@
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/item_dienthoai.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/item_loaisp.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/item_sanpham_new.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/nav_header_home.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/layout/order_layout.xml" value="0.15715579710144928" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ShopDienTuApp/app/src/main/res/menu/home.xml" value="0.25416666666666665" />
         <entry key="..\:/go/2021_2022/2022/Init/Android/PBLMobile/app/src/main/res/layout/activity_cart.xml" value="0.30256410256410254" />
