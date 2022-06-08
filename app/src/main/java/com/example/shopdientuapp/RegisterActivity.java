@@ -48,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
         String username = binding.registerUser.getText().toString();
         String phone = binding.registerPhone.getText().toString();
         String password = binding.registerPass.getText().toString();
+        String address = binding.registerAddress.getText().toString();
 
         if (TextUtils.isEmpty(username)) {
             Toast.makeText(this, "Please enter your name...", Toast.LENGTH_SHORT).show();
@@ -59,18 +60,21 @@ public class RegisterActivity extends AppCompatActivity {
         else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please enter your password...", Toast.LENGTH_SHORT).show();
         }
+        else if (TextUtils.isEmpty(address)) {
+            Toast.makeText(this, "Please enter your address...", Toast.LENGTH_SHORT).show();
+        }
         else {
             loadingBar.setTitle("Create Account");
             loadingBar.setMessage("Please wait,while we are checking the credentials.");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
-            ValidatephoneNumber(username, phone, password);
+            ValidatephoneNumber(username, phone, password, address);
         }
 
     }
 
-    private void ValidatephoneNumber(String name, String phone, String pass) {
+    private void ValidatephoneNumber(String name, String phone, String pass, String address) {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -82,6 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
                     userdataMap.put("phone",phone);
                     userdataMap.put("password",pass);
                     userdataMap.put("name",name);
+                    userdataMap.put("address",address);
 
                     RootRef.child("Users").child(phone).updateChildren(userdataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {

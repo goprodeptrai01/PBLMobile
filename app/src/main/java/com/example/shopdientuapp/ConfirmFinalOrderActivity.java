@@ -39,6 +39,9 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         totalAmount = getIntent().getStringExtra("Total Price");
         Toast.makeText(this, "Total Price = "+ totalAmount + " vnd", Toast.LENGTH_SHORT).show();
 
+        binding.edtName.setText(Prevalent.currentOnlineUser.getName());
+        binding.edtPhonenumber.setText(Prevalent.currentOnlineUser.getPhone());
+        binding.edtAddress.setText(Prevalent.currentOnlineUser.getAddress());
         binding.tvTotalPrc.setText("Total Price: "+totalAmount + " vnd");
         binding.tvTotalPrc.setEnabled(false);
 

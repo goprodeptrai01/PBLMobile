@@ -83,6 +83,21 @@
             android:inputType="textPassword"
             android:textSize="20sp"
             android:gravity="center"
+            android:layout_marginBottom="7dp"
+            android:textColorHint="@color/white"
+            />
+
+        <EditText
+            android:id="@+id/register_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/edt_style"
+            android:hint="Address"
+            android:inputType="text"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_marginBottom="7dp"
             android:textColorHint="@color/white"
             />
 
