@@ -43,7 +43,7 @@ public class CategoriesActivity extends AppCompatActivity {
 
         ArrayList<String> arrCategory = new ArrayList<String>();
         arrCategory.add("Laptop");
-        arrCategory.add("Phone");
+        arrCategory.add("Mobile");
         arrCategory.add("Tablet");
         arrCategory.add("Watch");
         arrCategory.add("Headphone");
