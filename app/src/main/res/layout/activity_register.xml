@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,32 +10,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/img"
-        />
+        android:src="@drawable/img" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/mo"/>
+        android:background="@color/mo" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="cursive"
                 android:text="Shop Online"
                 android:textColor="@color/hong"
-                android:textSize="40sp"
-                android:fontFamily="cursive"/>
+                android:textSize="40sp" />
 
             <ImageView
                 android:layout_width="75dp"
@@ -49,27 +48,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:background="@drawable/edt_style"
-            android:hint="User"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:textColorHint="@color/white"
-            android:layout_marginBottom="7dp"
             android:layout_marginTop="15dp"
-            />
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/edt_style"
+            android:gravity="center"
+            android:hint="User"
+            android:textColor="@color/hong"
+            android:textColorHint="@color/white"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/register_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="7dp"
             android:background="@drawable/edt_style"
+            android:gravity="center"
             android:hint="Phone Number"
             android:inputType="number"
-            android:textSize="20sp"
-            android:gravity="center"
+            android:textColor="@color/hong"
             android:textColorHint="@color/white"
-            android:layout_marginBottom="7dp"
+            android:textSize="20sp"
 
             />
 
@@ -78,28 +78,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="7dp"
             android:background="@drawable/edt_style"
+            android:gravity="center"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:layout_marginBottom="7dp"
+            android:textColor="@color/hong"
             android:textColorHint="@color/white"
-            />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/register_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="7dp"
             android:background="@drawable/edt_style"
+            android:gravity="center"
             android:hint="Address"
             android:inputType="text"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:layout_marginBottom="7dp"
+            android:textColor="@color/hong"
             android:textColorHint="@color/white"
-            />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/register_btn"
@@ -107,10 +107,10 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:backgroundTint="@color/hong"
-            android:text="Create Account"
             android:padding="15dp"
+            android:text="Create Account"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
 
     </LinearLayout>
