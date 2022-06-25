@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -153,6 +155,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                                 builder.setTitle("New Password");
 
                                 final EditText newPassword = new EditText(ResetPasswordActivity.this);
+                                newPassword.setInputType(InputType.TYPE_CLASS_TEXT |InputType.TYPE_TEXT_VARIATION_PASSWORD);
                                 newPassword.setHint("Write Password here...");
                                 builder.setView(newPassword);
 
