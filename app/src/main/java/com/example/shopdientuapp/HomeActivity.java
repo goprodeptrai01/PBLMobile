@@ -191,12 +191,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             if (type.equals("Admin")) {
                 intent.putExtra("type","Admin");
             }
+            else {
+                intent.putExtra("type","User");
+            }
             startActivity(intent);
         }
         else if (id == R.id.nav_search) {
             Intent intent = new Intent(HomeActivity.this, SearchActivity.class);
             if (type.equals("Admin")) {
                 intent.putExtra("type","Admin");
+            }
+            else {
+                intent.putExtra("type","User");
             }
             startActivity(intent);
         }
