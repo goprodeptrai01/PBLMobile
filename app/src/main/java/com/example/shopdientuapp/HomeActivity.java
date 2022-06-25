@@ -13,6 +13,7 @@ import com.example.shopdientuapp.Prevalent.Prevalent;
 import com.example.shopdientuapp.admin.AdminMaintainProductActivity;
 import com.example.shopdientuapp.databinding.ActivityHomeBinding;
 import com.example.shopdientuapp.model.Products;
+import com.example.shopdientuapp.model.Users;
 import com.example.shopdientuapp.viewholder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -187,16 +188,24 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.nav_categories) {
             Intent intent = new Intent(HomeActivity.this, CategoriesActivity.class);
+            if (type.equals("Admin")) {
+                intent.putExtra("type","Admin");
+            }
             startActivity(intent);
         }
         else if (id == R.id.nav_search) {
             Intent intent = new Intent(HomeActivity.this, SearchActivity.class);
+            if (type.equals("Admin")) {
+                intent.putExtra("type","Admin");
+            }
             startActivity(intent);
         }
         else if (id == R.id.nav_settings)
         {
-            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
-            startActivity(intent);
+            if (!type.equals("Admin")) {
+                Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
         }
         else if (id == R.id.nav_logout) {
             Paper.book().destroy();

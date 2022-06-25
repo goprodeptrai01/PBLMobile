@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.example.shopdientuapp.admin.AdminMaintainProductActivity;
 import com.example.shopdientuapp.databinding.ActivityCategoriesBinding;
 import com.example.shopdientuapp.model.Products;
 import com.example.shopdientuapp.viewholder.ProductViewHolder;
@@ -30,6 +31,7 @@ public class CategoriesActivity extends AppCompatActivity {
 
     private ActivityCategoriesBinding binding;
     private String CategoryInput;
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class CategoriesActivity extends AppCompatActivity {
         binding = ActivityCategoriesBinding.inflate(getLayoutInflater());
         View viewRoot = binding.getRoot();
         setContentView(viewRoot);
+        type = getIntent().getExtras().get("type").toString();
 
         binding.categoryList.setLayoutManager(new LinearLayoutManager(CategoriesActivity.this));
 
@@ -90,9 +93,16 @@ public class CategoriesActivity extends AppCompatActivity {
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Intent intent = new Intent(CategoriesActivity.this, ProductDetailActivity.class);
-                                intent.putExtra("pid",model.getPid());
-                                startActivity(intent);
+                                if (type.equals("Admin")) {
+                                    Intent intent = new Intent(CategoriesActivity.this, AdminMaintainProductActivity.class);
+                                    intent.putExtra("pid",model.getPid());
+                                    startActivity(intent);
+                                }
+                                else {
+                                    Intent intent = new Intent(CategoriesActivity.this, ProductDetailActivity.class);
+                                    intent.putExtra("pid", model.getPid());
+                                    startActivity(intent);
+                                }
                             }
                         });
                     }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shopdientuapp.R;
+import com.example.shopdientuapp.admin.AdminMaintainProductActivity;
 import com.example.shopdientuapp.databinding.ActivityMainBinding;
 import com.example.shopdientuapp.databinding.ActivitySearchBinding;
 import com.example.shopdientuapp.model.Products;
@@ -25,6 +26,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private ActivitySearchBinding binding;
     private String searchInput;
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class SearchActivity extends AppCompatActivity {
         binding = ActivitySearchBinding.inflate(getLayoutInflater());
         View viewRoot = binding.getRoot();
         setContentView(viewRoot);
+        type = getIntent().getExtras().get("type").toString();
 
         binding.searchList.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
 
@@ -68,9 +71,16 @@ public class SearchActivity extends AppCompatActivity {
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Intent intent = new Intent(SearchActivity.this, ProductDetailActivity.class);
-                                intent.putExtra("pid",model.getPid());
-                                startActivity(intent);
+                                if (type.equals("Admin")) {
+                                    Intent intent = new Intent(SearchActivity.this, AdminMaintainProductActivity.class);
+                                    intent.putExtra("pid",model.getPid());
+                                    startActivity(intent);
+                                } else {
+                                    Intent intent = new Intent(SearchActivity.this, ProductDetailActivity.class);
+                                    intent.putExtra("pid",model.getPid());
+                                    startActivity(intent);
+                                }
+
                             }
                         });
                     }
