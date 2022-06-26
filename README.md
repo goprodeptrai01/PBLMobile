@@ -1,13 +1,13 @@
 # PBLMobile
 # TaskManagement
 ## Features:
-Account Admin:
+1.Account Admin:
 - CRUD products
 -  Accept/Cancel orders
 -  Show product information
 -  Search product
 -  Sign in/Sign out
-Account User:
+2. Account User:
 -  Sign in/Sign out/Sign up
 -  Show product information
 -  Update personal information
