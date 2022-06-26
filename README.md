@@ -7,7 +7,7 @@
 -  Show product information
 -  Search product
 -  Sign in/Sign out
-2. Account User:
+2.Account User:
 -  Sign in/Sign out/Sign up
 -  Show product information
 -  Update personal information
