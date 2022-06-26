@@ -18,7 +18,7 @@
 https://drive.google.com/drive/folders/18TWwc025tgx80aiJH9OkYGgWXnR1kxq8?fbclid=IwAR0qHt8VC-5OE1bw-SZMs3weLTurom-bAIyN0-KjxFG11OnRYIkp6xqFiCI
 
 ### Login Screen
-(https://user-images.githubusercontent.com/102273080/175821083-e0b30062-0222-471e-994a-15728fe829fe.jpg)
+<img src="(https://user-images.githubusercontent.com/102273080/175821083-e0b30062-0222-471e-994a-15728fe829fe.jpg)"/>
 (https://user-images.githubusercontent.com/102273080/175821023-8fff179d-80e8-46f5-a1de-6564fa583cf6.jpg)
 
 ### Sign up Screen
@@ -56,36 +56,47 @@ https://drive.google.com/drive/folders/18TWwc025tgx80aiJH9OkYGgWXnR1kxq8?fbclid=
 (https://user-images.githubusercontent.com/102273080/175821496-afeb2935-cb92-4eb1-92a3-e3068077b22b.png)
 
 ## Android Libraries : 
-    
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.6.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-fragment:2.4.2'
-    implementation 'androidx.navigation:navigation-ui:2.4.2'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
+implementation 'androidx.appcompat:appcompat:1.4.1'
+implementation 'com.google.android.material:material:1.6.0'
+//Constraint Layout
+implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    implementation 'com.squareup.picasso:picasso:2.4.0'
-    implementation 'com.android.volley:volley:1.2.1'
-    implementation "androidx.cardview:cardview:1.0.0"
-    implementation 'io.github.pilgr:paperdb:2.7.2"
+//Navigation
+implementation 'androidx.navigation:navigation-fragment:2.4.2'
+implementation 'androidx.navigation:navigation-ui:2.4.2'
 
-    //Firebase
-    implementation platform('com.google.firebase:firebase-bom:30.1.0')
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-core:21.0.0'
-    implementation 'com.google.firebase:firebase-database:20.0.5'
-    implementation 'com.google.firebase:firebase-storage:20.0.1'
-    implementation 'com.firebaseui:firebase-ui-database:8.0.1'
-    implementation 'com.squareup.picasso:picasso:2.8'
+//Live Data
+implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
 
-    implementation "androidx.cardview:cardview:1.0.0"
+//View Model
+implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
+implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+testImplementation 'junit:junit:4.13.2'
+androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+// Circle Image
+implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+// Picasso for image
+implementation 'com.squareup.picasso:picasso:2.4.0'
+implementation 'com.android.volley:volley:1.2.1'
+
+// Card View
+implementation "androidx.cardview:cardview:1.0.0"
+
+// Paper
+implementation 'io.github.pilgr:paperdb:2.7.2"
+
+//Firebase
+implementation platform('com.google.firebase:firebase-bom:30.1.0')
+implementation 'com.google.firebase:firebase-analytics'
+implementation 'com.google.firebase:firebase-core:21.0.0'
+implementation 'com.google.firebase:firebase-database:20.0.5'
+implementation 'com.google.firebase:firebase-storage:20.0.1'
+implementation 'com.firebaseui:firebase-ui-database:8.0.1'
+implementation 'com.squareup.picasso:picasso:2.8'
  ## License
     Copyright (c) 2022 The 404 Not Found Team
     This project we create which the aim of education.
