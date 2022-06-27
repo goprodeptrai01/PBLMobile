@@ -30,11 +30,11 @@ https://drive.google.com/drive/folders/18TWwc025tgx80aiJH9OkYGgWXnR1kxq8?fbclid=
 <img src="https://user-images.githubusercontent.com/102273080/175821141-56c9fa94-5021-4699-8bb1-fab48a80a4a8.png" height="360px" weight="240px"/>
 
 ### Setting Screen
-<img src="https://user-images.githubusercontent.com/102273080/175821155-72d564bd-6a4f-4118-85d9-0eb3858dedb8.png" height="360px" weight="240px"/>
+<img src="https://user-images.githubusercontent.com/102273080/175821155-72d564bd-6a4f-4118-85d9-0eb3858dedb8.png" height="300px" weight="200px"/>
 
 ### CRUD Products Screen
-<img src="https://user-images.githubusercontent.com/102273080/175821214-59ba19b7-8131-49cb-a3e6-b31edd3fe10f.png" height="360px" weight="240px"/>
-<img src="https://user-images.githubusercontent.com/102273080/175821253-2635e2e6-43ee-410e-883e-91ca8b9059b9.png" height="360px" weight="240px"/>
+<img src="https://user-images.githubusercontent.com/102273080/175821214-59ba19b7-8131-49cb-a3e6-b31edd3fe10f.png" height="300px" weight="200px"/>
+<img src="https://user-images.githubusercontent.com/102273080/175821253-2635e2e6-43ee-410e-883e-91ca8b9059b9.png" height="300px" weight="200px"/>
 
 ### Show Orders Screen
 <img src="https://user-images.githubusercontent.com/102273080/175821245-2106130b-40b2-407c-8a08-a5b588cae7bc.png" height="360px" weight="240px"/>
@@ -43,7 +43,7 @@ https://drive.google.com/drive/folders/18TWwc025tgx80aiJH9OkYGgWXnR1kxq8?fbclid=
 <img src="https://user-images.githubusercontent.com/102273080/175821416-08a2fda4-d36d-4403-ba00-da2b78616491.png" height="360px" weight="240px"/>
 
 ### Reset Password Screen
-<img src="https://user-images.githubusercontent.com/102273080/175821463-e6f201ce-4437-4a7b-88f3-ed314f96b568.png" height="360px" weight="240px"/>
+<img src="https://user-images.githubusercontent.com/102273080/175821463-e6f201ce-4437-4a7b-88f3-ed314f96b568.png" height="300px" weight="200px"/>
 
 ### Search Screen
 <img src="https://user-images.githubusercontent.com/102273080/175821539-4447dcc4-d2ae-4ee4-9e55-5c85b38a52dd.png" height="360px" weight="240px"/>
