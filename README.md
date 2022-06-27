@@ -99,5 +99,5 @@ implementation 'com.squareup.picasso:picasso:2.8'
  ## License
     Copyright (c) 2022 The 404 Not Found Team
     This project we create which the aim of education.
-Link tài liệu Tester: https://docs.google.com/document/d/1g1r-viLJ8oLuTaNOoqsxslS3AqJRKySiAl4gPhhPHIY/edit?usp=sharing
-Link Figma: https://www.figma.com/file/nBP1Q9mYvQjeXVN08A0tOX/Mobile?node-id=0%3A1
+<p>Link tài liệu Tester: https://docs.google.com/document/d/1g1r-viLJ8oLuTaNOoqsxslS3AqJRKySiAl4gPhhPHIY/edit?usp=sharing</p>
+<p>Link Figma: https://www.figma.com/file/nBP1Q9mYvQjeXVN08A0tOX/Mobile?node-id=0%3A1
